@@ -1,0 +1,8 @@
+# 編輯器設定
+.vscode/
+# 備份檔（不上傳）
+tools/backup/
+# 系統檔
+Thumbs.db
+desktop.ini
+.DS_Store

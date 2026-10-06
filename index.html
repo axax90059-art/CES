@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 內部預覽中：禁止搜尋引擎收錄。正式公開時刪除下面這一行 -->
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex" />
+  <title>FIH Automotive | CES 2027 · LVCC West Hall · Booth #5761</title>
+  <meta name="description" content="FIH Automotive Electronics at CES 2027 – Jan 6–9, 2027, LVCC West Hall, Booth #5761. TCU, ZCU, ADAS, IVI, HPC and more." />
+  <meta name="theme-color" content="#030a14" />
+  <link rel="icon" href="assets/fihlogo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/fonts.css" /><!-- 本機字型，離線可用 -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- 背景：點陣網格 + 電路走線 -->
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- 捲動進度條 -->
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
+
+  <!-- 導覽列 -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav-brand" aria-label="Foxconn"><img src="assets/logo.svg" alt="Foxconn" /></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#about" data-sec="about"><span class="mono">01</span>About</a>
+      <a href="#products" data-sec="products"><span class="mono">02</span>Products</a>
+      <a href="#floorplan" data-sec="floorplan"><span class="mono">03</span>Find Us</a>
+    </nav>
+    <a class="nav-site" href="https://www.fihmobile.com/" target="_blank" rel="noopener" aria-label="Visit FIH Mobile official website (opens in new tab)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <span>fihmobile.com</span>
+      <svg class="nav-site-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO / BANNER ============ -->
+    <section class="hero">
+      <div class="hero-banner" id="heroBanner">
+        <!-- Banner：手機（767px 以下）用直版，其他用橫版 -->
+        <picture>
+          <source media="(max-width: 767px)" srcset="assets/banner-mobile.svg" />
+          <img src="assets/banner-desktop.svg" alt="FIH Automotive Electronics – CES 2027 Invitation. Experience the future of automotive electronics. Jan 6–9, 2027, Booth #5761, LVCC West Hall." />
+        </picture>
+        <span class="hero-sweep" aria-hidden="true"></span>
+        <span class="hero-edge" aria-hidden="true"></span>
+      </div>
+
+      <div class="event-strip">
+        <div class="event-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+          <div><span class="mono">DATE</span><b>Jan 6–9, 2027</b></div>
+        </div>
+        <div class="event-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg>
+          <div><span class="mono">BOOTH</span><b>#5761</b></div>
+        </div>
+        <div class="event-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <div><span class="mono">VENUE</span><b>CES 2027 · LVCC, West Hall</b></div>
+        </div>
+        <div class="event-item countdown" id="countdown">
+          <span class="live-dot"></span>
+          <div><span class="mono" id="cdLabel">STARTS IN</span><b id="cdValue">--</b></div>
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#products" class="btn btn-primary">Explore Products
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#floorplan" class="btn btn-ghost">Find Our Booth</a>
+      </div>
+    </section>
+
+    <!-- ============ 01 ABOUT ============ -->
+    <section class="section" id="about">
+      <header class="sec-head" data-anim>
+        <span class="sec-index mono">01 — ABOUT FIH</span>
+        <h2>Two decades of automotive<br /><em>connectivity</em>, delivered at scale.</h2>
+      </header>
+      <div class="about-grid">
+        <div class="about-lead" data-anim>
+          <p>
+            FIH is driving the future of smart mobility with integrated E/EA solutions spanning centralized computing,
+            connectivity, and autonomous driving. Our HPC, ZCU, TCU, and ADAS domain controllers enable scalable E/E
+            architectures, OTA updates, 4G/5G and V2X connectivity, secure cloud integration, and intelligent perception and control.
+          </p>
+          <p>
+            A subsidiary of Hon Hai Technology Group (Foxconn), FIH Mobile Limited (2038.HK) combines global R&amp;D,
+            engineering, and manufacturing capabilities with deep expertise in hardware-software integration. Through its
+            worldwide production network, FIH delivers scalable solutions across automotive electronics, smart manufacturing,
+            and manufacturing equipment and robotics for leading global customers.
+          </p>
+          <p>
+            For more information, please visit
+            <a href="https://www.fihmobile.com/" target="_blank" rel="noopener">www.fihmobile.com</a>
+          </p>
+        </div>
+        <div class="kpis">
+          <div class="kpi" data-anim><b><span data-count="20">0</span>+</b><span>Years of experience</span></div>
+          <div class="kpi" data-anim><b><span data-count="3">0</span>M</b><span>4G TCU shipments</span></div>
+          <div class="kpi" data-anim><b><span data-count="10">0</span>M+</b><span>Lifetime units delivered</span></div>
+        </div>
+      </div>
+      <ul class="domains" data-anim>
+        <li>TCU</li><li>ZCU</li><li>ADAS</li><li>IVI</li><li>HPC</li><li>Cybersecurity</li><li>Digital Key</li><li>Chassis</li>
+      </ul>
+    </section>
+
+    <!-- ============ 02 PRODUCTS ============ -->
+    <section class="section" id="products">
+      <header class="sec-head" data-anim>
+        <span class="sec-index mono">02 — FEATURE PRODUCTS</span>
+        <h2>From the edge to the <em>core</em> of the vehicle.</h2>
+      </header>
+
+      <div class="cat-tabs" id="catTabs" role="tablist" aria-label="Product categories" data-anim></div>
+
+      <div class="stage" id="stage" data-anim>
+        <!-- 左：產品展示台 -->
+        <div class="stage-visual">
+          <div class="stage-img-wrap">
+            <img id="pImg" src="" alt="" />
+          </div>
+          <span class="crosshair tl"></span><span class="crosshair tr"></span>
+          <span class="crosshair bl"></span><span class="crosshair br"></span>
+        </div>
+
+        <!-- 右：資訊 -->
+        <div class="stage-info" aria-live="polite">
+          <div class="info-top">
+            <span class="cat-label mono" id="pCat">TELEMATICS</span>
+            <span class="counter mono"><b id="pIdx">01</b><i>/</i><span id="pTotal">19</span></span>
+          </div>
+          <h3 class="p-name"><span id="pName"></span></h3>
+          <ul class="specs" id="pSpecs"></ul>
+          <p class="p-desc" id="pDesc"></p>
+
+          <div class="stage-controls">
+            <button class="ctrl" id="prevBtn" aria-label="Previous product">
+              <svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+            </button>
+            <div class="timeline" aria-hidden="true"><span id="timeBar"></span></div>
+            <button class="ctrl" id="nextBtn" aria-label="Next product">
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 產品膠卷列 -->
+      <div class="filmstrip" id="filmstrip" data-anim></div>
+    </section>
+
+    <!-- ============ 03 FLOOR PLAN ============ -->
+    <section class="section" id="floorplan">
+      <header class="sec-head" data-anim>
+        <span class="sec-index mono">03 — BOOTH #5761 · FLOOR PLAN</span>
+        <h2>Find us at <em>Booth #5761</em>.</h2>
+      </header>
+
+      <div class="venue-layout" data-anim>
+        <!-- 攤位圖：換圖只要覆蓋 assets/map.svg -->
+        <figure class="map-card">
+          <button type="button" class="map-open" id="mapOpen" aria-label="Enlarge floor plan">
+            <img src="assets/map.svg" alt="Exhibition venue and FIH booth floor plan" width="1403" height="1365" loading="lazy" />
+            <span class="map-hint mono">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              TAP TO ENLARGE
+            </span>
+          </button>
+        </figure>
+
+        <aside class="venue-info">
+          <p class="mono venue-label">VENUE</p>
+          <h3>CES 2027 · LVCC</h3>
+          <p class="venue-sub">West Hall · Booth #5761</p>
+          <ul class="venue-meta">
+            <li><span class="mono">DATE</span>January 6–9, 2027</li>
+            <li><span class="mono">LOCATION</span>Las Vegas Convention Center<br />300 Convention Center Dr, Las Vegas, NV 89109</li>
+          </ul>
+          <!-- Google 地圖（換地址：改 iframe 的 src 與下面兩個按鈕連結） -->
+          <iframe class="venue-gmap" src="https://www.google.com/maps?q=300%20Convention%20Center%20Dr%2C%20Las%20Vegas%2C%20NV%2089109%2C%20USA&z=15&output=embed" title="Google Maps – 300 Convention Center Dr, Las Vegas, NV 89109, USA"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          <div class="venue-actions">
+            <a class="btn btn-primary venue-btn" href="https://www.google.com/maps/search/?api=1&query=300%20Convention%20Center%20Dr%2C%20Las%20Vegas%2C%20NV%2089109%2C%20USA" target="_blank" rel="noopener">Open in Google Maps</a>
+            <a class="btn btn-ghost venue-btn" href="https://www.google.com/maps/dir/?api=1&destination=300%20Convention%20Center%20Dr%2C%20Las%20Vegas%2C%20NV%2089109%2C%20USA" target="_blank" rel="noopener">Directions</a>
+            <a class="btn btn-ghost venue-btn" href="assets/map.svg" target="_blank" rel="noopener">Open full-size floor plan</a>
+          </div>
+        </aside>
+      </div>
+
+      <!-- 攤位圖放大檢視 -->
+      <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Floor plan" hidden>
+        <div class="lightbox-scroll" id="lightboxScroll">
+          <div class="lightbox-frame">
+            <p class="lightbox-title"><span class="mono">BOOTH #5761</span>Visit us at CES 2027</p>
+            <img src="assets/map.svg" alt="Exhibition venue and FIH booth floor plan (full size)" id="lightboxImg" />
+            <!-- 關閉鈕貼在地圖右上角；放大檢視時改固定在畫面右上角 -->
+            <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close">
+              <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </button>
+            <!-- 地圖下方：直接開 Google 地圖 / 導航到會場 -->
+            <div class="lightbox-actions">
+              <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=300%20Convention%20Center%20Dr%2C%20Las%20Vegas%2C%20NV%2089109%2C%20USA" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Open in Google Maps</a>
+              <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&destination=300%20Convention%20Center%20Dr%2C%20Las%20Vegas%2C%20NV%2089109%2C%20USA" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>Directions</a>
+            </div>
+          </div>
+        </div>
+        <p class="lightbox-hint mono">TAP MAP TO ZOOM · TAP OUTSIDE OR ✕ TO CLOSE</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- 右側固定的地圖按鈕：任何時候點了都會跳出攤位圖 -->
+  <button type="button" class="map-fab" id="mapFab" aria-label="Open floor plan">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"/></svg>
+    <span>MAP</span>
+  </button>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <img src="assets/fihlogo.svg" alt="FIH Automotive Electronics" class="footer-logo" />
+      <div class="footer-meta">
+        <p class="footer-tag">Experience the Future of Automotive Electronics</p>
+        <a class="site-link" href="https://www.fihmobile.com/" target="_blank" rel="noopener" aria-label="Visit FIH Mobile official website (opens in new tab)">
+          <svg class="site-globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+          <span><small>Official Website</small>www.fihmobile.com</span>
+          <svg class="site-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+        <p class="mono">© FIH Mobile Limited. All Rights Reserved.</p>
+      </div>
+      <a href="#top" class="to-top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
