@@ -208,11 +208,14 @@
   introDone.then(() => ALL.forEach((p) => { const im = new Image(); im.src = p.img; }));   // 開場結束後才預載
   const pad = (n) => String(n).padStart(2, "0");
 
-  // Tabs
-  const counts = ALL.reduce((m, p) => ((m[p.cat] = (m[p.cat] || 0) + 1), m), {});
-  const tabCats = ["All", ...Object.keys(CATEGORIES).filter((c) => counts[c])];
+  // Tabs（固定順序；不在 MAIN_CATS 裡的分類，例如 Chassis / Security / Access，都歸到 Others）
+  const MAIN_CATS = ["TCU", "ZCU", "HPC", "ADAS", "IVI"];
+  const groupOf = (p) => (MAIN_CATS.includes(p.cat) ? p.cat : "Others");
+  const counts = ALL.reduce((m, p) => ((m[groupOf(p)] = (m[groupOf(p)] || 0) + 1), m), {});
+  const tabCats = ["All", ...MAIN_CATS.filter((c) => counts[c]), ...(counts.Others ? ["Others"] : [])];
+  const tabLabel = (c) => (c === "All" ? "All Products" : c === "Others" ? "Others" : CATEGORIES[c]);
   el.tabs.innerHTML =
-    tabCats.map((c) => `<button class="tab" role="tab" data-cat="${c}">${c === "All" ? "All Products" : CATEGORIES[c]}<sup>${c === "All" ? ALL.length : counts[c]}</sup></button>`).join("") +
+    tabCats.map((c) => `<button class="tab" role="tab" data-cat="${c}">${tabLabel(c)}<sup>${c === "All" ? ALL.length : counts[c]}</sup></button>`).join("") +
     `<span class="tab-ink" aria-hidden="true"></span>`;
   const ink = $(".tab-ink", el.tabs);
   const moveInk = () => {
@@ -241,7 +244,7 @@
     const tab = $(".tab.active", el.tabs);
     tab && el.tabs.scrollTo({ left: tab.offsetLeft - 20, behavior: "smooth" });
     moveInk();
-    list = cat === "All" ? ALL : ALL.filter((p) => p.cat === cat);
+    list = cat === "All" ? ALL : ALL.filter((p) => groupOf(p) === cat);
     films.forEach((f) => f.classList.toggle("hidden", !list.some((p) => p.i === +f.dataset.i)));
     busy = false; cur = -1;
     stage.classList.remove("is-in", "is-out");
