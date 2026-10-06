@@ -83,11 +83,11 @@ const PRODUCTS = [
     desc: "15-inch dual-layer OLED architecture, 2560 x 1600 resolution, 800 nit, 100% NTSC and wide viewing angle (Contrast > 1000 at 80°).",
   },
   {
-    name: '32" Tandem OLED Display',
+    name: '29.5" Tandem OLED Display',
     cat: "IVI",
     img: "assets/products/p11.png",
     specs: ["5040 × 216", "1000 nit", "100% NTSC", "Tandem OLED"],
-    desc: "32-inch dual-layer OLED architecture, 5040 x 216 resolution, 1000 nit, 100% NTSC and wide viewing angle (Contrast > 1000 at 80°).",
+    desc: "29.5-inch dual-layer OLED architecture, 5040 x 216 resolution, 1000 nit, 100% NTSC and wide viewing angle (Contrast > 1000 at 80°).",
   },
   {
     name: "High-Performance Computing Platform (IVI + ADAS)",
