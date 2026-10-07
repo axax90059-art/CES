@@ -156,9 +156,10 @@
     es.forEach((e) => {
       if (!e.isIntersecting) return;
       const el = e.target, to = +el.dataset.count, t0 = performance.now();
+      const dec = (el.dataset.count.split(".")[1] || "").length;   // 支援小數，例如 3.6
       const step = (now) => {
         const p = Math.min((now - t0) / 1800, 1);
-        el.textContent = Math.round(to * (1 - Math.pow(1 - p, 4)));
+        el.textContent = (to * (1 - Math.pow(1 - p, 4))).toFixed(dec);
         if (p < 1) requestAnimationFrame(step);
       };
       requestAnimationFrame(step);
