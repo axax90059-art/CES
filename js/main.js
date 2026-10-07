@@ -227,26 +227,14 @@
   el.tabs.addEventListener("click", (e) => { const b = e.target.closest(".tab"); if (b) setCategory(b.dataset.cat); });
 
   // Filmstrip
+  // 縮圖：用 assets/products/thumb/ 裡的小圖（最長邊 200px），網頁載入完後一次載入
+  // 換產品圖時記得也要更新小圖（README 有說明）
+  const thumbOf = (src) => src.replace("assets/products/", "assets/products/thumb/");
   el.film.innerHTML = ALL.map((p) =>
-    `<button class="film" data-i="${p.i}"><div class="film-img"><img data-src="${p.img}" alt="" /></div><span>${p.name}</span></button>`
+    `<button class="film" data-i="${p.i}"><div class="film-img"><img data-src="${thumbOf(p.img)}" alt="" decoding="async" /></div><span>${p.name}</span></button>`
   ).join("");
   const films = $$(".film", el.film);
-  // 縮圖等網頁載入完才開始，而且一張載完、瀏覽器有空時才載下一張（一次全部載入會卡）
-  // 載過的圖會留在快取，產品換頁時直接用，不會閃爍
-  introDone.then(() => {
-    const imgs = $$("img[data-src]", el.film);
-    const idle = window.requestIdleCallback ? (f) => requestIdleCallback(f, { timeout: 300 }) : (f) => setTimeout(f, 60);   // 最多等 0.3 秒
-    let k = 0;
-    const next = () => {
-      const im = imgs[k++];
-      if (!im) return;
-      const go = () => idle(next);
-      im.addEventListener("load", go, { once: true });
-      im.addEventListener("error", go, { once: true });
-      im.src = im.dataset.src;
-    };
-    next();
-  });
+  introDone.then(() => $$("img[data-src]", el.film).forEach((im) => (im.src = im.dataset.src)));
   el.film.addEventListener("click", (e) => {
     const f = e.target.closest(".film"); if (!f) return;
     const k = list.findIndex((p) => p.i === +f.dataset.i);
@@ -271,6 +259,8 @@
     const p = list[cur];
     stage.style.setProperty("--dir", dir);
     el.img.src = p.img; el.img.alt = p.name;
+    // 預先載入下一個產品的大圖（只載一張），換頁時不會閃
+    if (list.length > 1) { const nx = new Image(); nx.decoding = "async"; nx.src = list[(cur + 1) % list.length].img; }
     el.name.textContent = p.name;
     el.cat.textContent = p.cat.toUpperCase();   // 跟 GM 一樣用簡稱
     el.specs.innerHTML = p.specs.map((s) => `<li>${s}</li>`).join("");
