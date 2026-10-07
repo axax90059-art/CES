@@ -138,11 +138,4 @@ const PRODUCTS = [
     specs: ["NXP", "6.5–8.0 GHz UWB", "BLE", "CAN"],
     desc: "Compact UWB anchor with NXP platform, 6.5–8.0GHz UWB, BLE 2.4GHz, CAN, and small-form-factor packaging.",
   },
-  {
-    name: "Tow Trailer Control Module",
-    cat: "Chassis",
-    img: "assets/products/p19.png",
-    specs: ["Secure Boot", "Signed OTA", "Smart Power", "Diagnostics"],
-    desc: "Trailer control module with lighting, braking, detection, smart power, diagnostics, secure boot, and signed OTA/service flashing.",
-  },
 ];
