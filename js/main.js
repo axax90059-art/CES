@@ -216,7 +216,7 @@
   const tabCats = ["All", ...MAIN_CATS.filter((c) => counts[c]), ...(counts.Others ? ["Others"] : [])];
   const tabLabel = (c) => c;   // 跟 GM 一樣用簡稱：All / TCU / ZCU / HPC / ADAS / IVI / Others
   el.tabs.innerHTML =
-    tabCats.map((c) => `<button class="tab" role="tab" data-cat="${c}">${tabLabel(c)}<sup>${c === "All" ? ALL.length : counts[c]}</sup></button>`).join("") +
+    tabCats.map((c) => `<button class="tab" role="tab" data-cat="${c}">${tabLabel(c)}</button>`).join("") +
     `<span class="tab-ink" aria-hidden="true"></span>`;
   const ink = $(".tab-ink", el.tabs);
   const moveInk = () => {
@@ -258,7 +258,7 @@
     stage.style.setProperty("--dir", dir);
     el.img.src = p.img; el.img.alt = p.name;
     el.name.textContent = p.name;
-    el.cat.textContent = CATEGORIES[p.cat].toUpperCase();
+    el.cat.textContent = p.cat.toUpperCase();   // 跟 GM 一樣用簡稱
     el.specs.innerHTML = p.specs.map((s) => `<li>${s}</li>`).join("");
     el.desc.textContent = p.desc;
     el.idx.textContent = pad(cur + 1);
