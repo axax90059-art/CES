@@ -148,9 +148,12 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
 .about-lead { font-size: clamp(1.05rem, 1.6vw, 1.25rem); font-weight: 300; color: var(--dim); line-height: 1.7; }
 .about-lead p + p { margin-top: 1em; }
 .about-lead a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
-.kpis { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line-2); }
+.kpis { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line-2); row-gap: 22px; }
 .kpi { padding: 22px 12px 0 0; }
-.kpi + .kpi { padding-left: 16px; border-left: 1px solid var(--line); }
+.kpi:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--line); }
+/* 獎項卡片：獎盃圖示 + 文字（高度跟數字一樣） */
+.kpi-award b { display: flex; align-items: flex-end; gap: 0.3em; font-size: clamp(1.1rem, 2vw, 1.5rem); height: clamp(2rem, 4.4vw, 3.2rem); letter-spacing: 0; }
+.award-icon { width: 1.2em; height: 1.2em; flex: none; fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .kpi b { display: block; font-family: var(--f-display); font-weight: 500; font-size: clamp(2rem, 4.4vw, 3.2rem); line-height: 1; letter-spacing: -0.03em; margin-bottom: 10px; font-variant-numeric: tabular-nums; }
 .kpi > span { font-size: 0.8rem; color: var(--dim); }
 .domains { display: flex; flex-wrap: wrap; gap: 8px; margin-top: clamp(32px, 5vw, 56px); }
@@ -416,7 +419,7 @@ body.lightbox-on { overflow: hidden; }
   .nav-site svg { width: 20px; height: 20px; }
   .event-strip { grid-template-columns: 1fr; padding: 16px; }
   .hero-cta .btn { flex: 1; justify-content: center; padding: 0 14px; font-size: 0.9rem; }
-  .kpi + .kpi { padding-left: 10px; }
+  .kpi:nth-child(even) { padding-left: 10px; }
   .kpi > span { font-size: 0.8rem; line-height: 1.35; display: block; }
   .stage-visual { height: 260px; }
   .film { width: 128px; }
