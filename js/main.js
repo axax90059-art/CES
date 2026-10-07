@@ -21,7 +21,8 @@
   /* =========================================================
      進入網站：Banner 淡入（已移除開場影片）
      ========================================================= */
-  const introDone = Promise.resolve();   // 保留給背景動畫、產品圖預載使用（現在立即開始）
+  // 等網頁（Banner、字型）載入完，才開始背景動畫和產品圖下載，不跟第一屏搶網路
+  const introDone = new Promise((r) => (document.readyState === "complete" ? r() : addEventListener("load", () => r(), { once: true })));
   setTimeout(() => document.body.classList.add("loaded"), 60);   // 稍等一下再加，讓 Banner 淡入動畫生效
 
   /* =========================================================
@@ -206,7 +207,6 @@
   const ALL = PRODUCTS.map((p, i) => ({ ...p, i }));
   let list = ALL, cur = -1, busy = false, timer = null, anim = null, activeCat = "All";
 
-  introDone.then(() => ALL.forEach((p) => { const im = new Image(); im.src = p.img; }));   // 開場結束後才預載
   const pad = (n) => String(n).padStart(2, "0");
 
   // Tabs（固定順序；不在 MAIN_CATS 裡的分類，例如 Chassis / Security / Access，都歸到 Others）
@@ -231,8 +231,22 @@
     `<button class="film" data-i="${p.i}"><div class="film-img"><img data-src="${p.img}" alt="" /></div><span>${p.name}</span></button>`
   ).join("");
   const films = $$(".film", el.film);
-  // 縮圖等開場動畫結束才載入，避免跟影片搶頻寬
-  introDone.then(() => $$("img[data-src]", el.film).forEach((im) => (im.src = im.dataset.src)));
+  // 縮圖等網頁載入完才開始，而且一張載完、瀏覽器有空時才載下一張（一次全部載入會卡）
+  // 載過的圖會留在快取，產品換頁時直接用，不會閃爍
+  introDone.then(() => {
+    const imgs = $$("img[data-src]", el.film);
+    const idle = window.requestIdleCallback ? (f) => requestIdleCallback(f, { timeout: 300 }) : (f) => setTimeout(f, 60);   // 最多等 0.3 秒
+    let k = 0;
+    const next = () => {
+      const im = imgs[k++];
+      if (!im) return;
+      const go = () => idle(next);
+      im.addEventListener("load", go, { once: true });
+      im.addEventListener("error", go, { once: true });
+      im.src = im.dataset.src;
+    };
+    next();
+  });
   el.film.addEventListener("click", (e) => {
     const f = e.target.closest(".film"); if (!f) return;
     const k = list.findIndex((p) => p.i === +f.dataset.i);
