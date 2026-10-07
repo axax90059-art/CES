@@ -214,7 +214,7 @@
   const groupOf = (p) => (MAIN_CATS.includes(p.cat) ? p.cat : "Others");
   const counts = ALL.reduce((m, p) => ((m[groupOf(p)] = (m[groupOf(p)] || 0) + 1), m), {});
   const tabCats = ["All", ...MAIN_CATS.filter((c) => counts[c]), ...(counts.Others ? ["Others"] : [])];
-  const tabLabel = (c) => (c === "All" ? "All Products" : c === "Others" ? "Others" : CATEGORIES[c]);
+  const tabLabel = (c) => c;   // 跟 GM 一樣用簡稱：All / TCU / ZCU / HPC / ADAS / IVI / Others
   el.tabs.innerHTML =
     tabCats.map((c) => `<button class="tab" role="tab" data-cat="${c}">${tabLabel(c)}<sup>${c === "All" ? ALL.length : counts[c]}</sup></button>`).join("") +
     `<span class="tab-ink" aria-hidden="true"></span>`;
