@@ -154,6 +154,7 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
 /* 獎項卡片：獎盃圖示 + 文字（高度跟數字一樣） */
 .kpi-award b { display: flex; align-items: flex-end; gap: 0.3em; font-size: clamp(1.1rem, 2vw, 1.5rem); height: clamp(2rem, 4.4vw, 3.2rem); letter-spacing: 0; }
 .award-icon { width: 1.2em; height: 1.2em; flex: none; fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.award-logo { height: clamp(26px, 3.4vw, 40px); width: auto; display: block; }
 .kpi b { display: block; font-family: var(--f-display); font-weight: 500; font-size: clamp(2rem, 4.4vw, 3.2rem); line-height: 1; letter-spacing: -0.03em; margin-bottom: 10px; font-variant-numeric: tabular-nums; }
 .kpi > span { font-size: 0.8rem; color: var(--dim); }
 .domains { display: flex; flex-wrap: wrap; gap: 8px; margin-top: clamp(32px, 5vw, 56px); }
