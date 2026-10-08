@@ -205,16 +205,16 @@
     tabs: $("#catTabs"), film: $("#filmstrip"),
   };
   const ALL = PRODUCTS.map((p, i) => ({ ...p, i }));
-  let list = ALL, cur = -1, busy = false, timer = null, anim = null, activeCat = "ALL";
+  let list = ALL, cur = -1, busy = false, timer = null, anim = null, activeCat = "All";
 
   const pad = (n) => String(n).padStart(2, "0");
 
-  // Tabs（固定順序：ALL / TCU / HPC / ZCU / IVI / ADAS / Others；不在 MAIN_CATS 裡的分類，例如 Chassis / Security / Access，都歸到 Others）
+  // Tabs（固定順序：All / TCU / HPC / ZCU / IVI / ADAS / Others；不在 MAIN_CATS 裡的分類，例如 Chassis / Security / Access，都歸到 Others）
   const MAIN_CATS = ["TCU", "HPC", "ZCU", "IVI", "ADAS"];
   const groupOf = (p) => (MAIN_CATS.includes(p.cat) ? p.cat : "Others");
   const counts = ALL.reduce((m, p) => ((m[groupOf(p)] = (m[groupOf(p)] || 0) + 1), m), {});
-  const tabCats = ["ALL", ...MAIN_CATS.filter((c) => counts[c]), ...(counts.Others ? ["Others"] : [])];
-  const tabLabel = (c) => c;   // 標籤顯示：ALL / TCU / HPC / ZCU / IVI / ADAS / Others
+  const tabCats = ["All", ...MAIN_CATS.filter((c) => counts[c]), ...(counts.Others ? ["Others"] : [])];
+  const tabLabel = (c) => c;   // 標籤顯示：All / TCU / HPC / ZCU / IVI / ADAS / Others（跟 GM 一樣）
   el.tabs.innerHTML =
     tabCats.map((c) => `<button class="tab" role="tab" data-cat="${c}">${tabLabel(c)}</button>`).join("") +
     `<span class="tab-ink" aria-hidden="true"></span>`;
@@ -247,7 +247,7 @@
     const tab = $(".tab.active", el.tabs);
     tab && el.tabs.scrollTo({ left: tab.offsetLeft - 20, behavior: "smooth" });
     moveInk();
-    list = (cat === "ALL" || cat === "All") ? ALL : ALL.filter((p) => groupOf(p) === cat);
+    list = cat === "All" ? ALL : ALL.filter((p) => groupOf(p) === cat);
     films.forEach((f) => f.classList.toggle("hidden", !list.some((p) => p.i === +f.dataset.i)));
     busy = false; cur = -1;
     stage.classList.remove("is-in", "is-out");
@@ -388,7 +388,7 @@
   setTimeout(openMap, 600);
 
   // Init
-  setCategory("ALL");
+  setCategory("All");
   requestAnimationFrame(moveInk);
   document.fonts?.ready.then(moveInk);
 })();
